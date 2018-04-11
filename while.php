@@ -13,7 +13,7 @@ arrayAlphabeticalSort($betas);
 ?>
 <html>
     <head>
-      <title>While something something</title>
+      <title>While something something AND something</title>
     </head>
     <body>
 
