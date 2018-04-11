@@ -29,7 +29,7 @@ $totalStars = $_POST["userSubmittedNumber"]
   </head>
   <body>
     <form action="" method="post">
-      <label>How many stars?</label>
+      <label>How many lines of stars?</label>
       <input type="number" name="userSubmittedNumber">
       <button type="submit">Do it</button>
     </form>
