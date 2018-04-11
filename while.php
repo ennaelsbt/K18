@@ -6,9 +6,11 @@ function arrayAlphabeticalSort($array) {
 
 $alphas = array('yksi', 'kaksi', 'kolme', 'neljä', 'viisi', 'seitsemän');
 $betas = array('b', 'd', 'x', 'z', 'g', 'p');
+$abcs = array('a', 'c', 'b');
 
 arrayAlphabeticalSort($alphas);
 arrayAlphabeticalSort($betas);
+arrayAlphabeticalSort($abcs);
 
 ?>
 <html>
