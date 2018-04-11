@@ -13,12 +13,30 @@ näytölle viisi riviä ja 1 - 5 tähteä, näin:
 -->
 
 <?php
-
-function drawStars($amount = 5){
-  $totalStars = (range(1, $amount));
-  foreach ($totalStars as $value){
+function drawStars($amount){
+  $totalLines = (range(1, $amount));
+  foreach ($totalLines as $value){
     echo str_repeat("* ", $value) . "<br>";
   }
 }
-drawStars(8);
+
+$totalStars = $_POST["userSubmittedNumber"]
 ?>
+
+<html>
+  <head>
+    <title>Draw some stars</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      <label>How many stars?</label>
+      <input type="number" name="userSubmittedNumber">
+      <button type="submit">Do it</button>
+    </form>
+    <?php
+      if (isset($totalStars)) {
+        echo drawStars($totalStars);
+      }
+    ?>
+  </body>
+</html>
