@@ -4,7 +4,7 @@ function arrayAlphabeticalSort($array) {
   echo implode(", ", $array) . "<br>";
 }
 
-$alphas = array('yksi', 'kaksi', 'kolme', 'neljä', 'viisi', 'kuusi');
+$alphas = array('yksi', 'kaksi', 'kolme', 'neljä', 'viisi', 'seitsemän');
 $betas = array('b', 'd', 'x', 'z', 'g', 'f');
 
 arrayAlphabeticalSort($alphas);
