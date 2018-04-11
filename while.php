@@ -5,7 +5,7 @@ function arrayAlphabeticalSort($array) {
 }
 
 $alphas = array('yksi', 'kaksi', 'kolme', 'neljä', 'viisi', 'seitsemän');
-$betas = array('b', 'd', 'x', 'z', 'g', 'f');
+$betas = array('b', 'd', 'x', 'z', 'g', 'p');
 
 arrayAlphabeticalSort($alphas);
 arrayAlphabeticalSort($betas);
