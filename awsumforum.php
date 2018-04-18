@@ -1,19 +1,27 @@
+<?php
+    session_start();
+    // checks if user is logged in and if not redirects to login:
+    if(!isset($_SESSION["login"])) {
+        header("LOCATION:awsumforum_login.php"); die();
+    }
+    // logs out if the user hits logout-button, resets session and redirects
+    if(isset($_POST["logout"])){
+        $_SESSION["login"] === false;
+        unset($_SESSION["username"]);
+        session_destroy();
+        header("LOCATION:awsumforum_login.php");
+     }
+?>
 <html>
   <head>
     <title>awsum forum</title>
   </head>
   <body>
-      <a href="awsumforum_login.php">a link to the other page for easier testing</a><br><br>
-    <!-- make this a section that only appears if user is not logged in -->
-    <form action="" method="post">
-      <label>Welcome buddy</label><br>
-      <input  type="text"
-              name="user"
-              placeholder="Username"><br>
-      <input  type="password"
-              name="userPassword"
-              placeholder="Password"><br>
-      <button type="submit">Login</button>
-    </form>
+      <form action="" method="post">
+        <p>congrats <?php echo $_SESSION['username'] ?> you are in</p>
+        <input  type="submit"
+                value="Logout"
+                name="logout">
+      </form>
   </body>
 </html>
