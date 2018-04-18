@@ -1,0 +1,23 @@
+body {
+  text-family:'Barlow', sans-serif;
+}
+h1 {
+  text-align: center;
+}
+.container {
+  display:         flex;
+  width:           100%;
+  justify-content: center;
+}
+.form-container {
+  background: #dfdfdf;
+  padding:25px;
+  min-width:200px;
+}
+label,
+input,
+input[type="submit"] {
+}
+input {
+  min-width:200px;
+}

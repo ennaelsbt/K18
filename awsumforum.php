@@ -15,13 +15,18 @@
 <html>
   <head>
     <title>awsum forum</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-      <form action="" method="post">
-        <p>congrats <?php echo $_SESSION['username'] ?> you are in</p>
-        <input  type="submit"
-                value="Logout"
-                name="logout">
-      </form>
+    <div class="container">
+      <section class="form-container">
+        <form action="" method="post">
+          <p>congrats <?php echo $_SESSION['username'] ?> you are in</p>
+          <input type="submit" value="Logout" name="logout">
+        </form>
+      </section>
+    </div>
   </body>
 </html>
