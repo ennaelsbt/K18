@@ -14,9 +14,13 @@ näytölle viisi riviä ja 1 - 5 tähteä, näin:
 
 <?php
 function drawStars($amount){
+  if ($amount >= 1) {
   $totalLines = (range(1, $amount));
-  foreach ($totalLines as $value){
-    echo str_repeat("* ", $value) . "<br>";
+    foreach ($totalLines as $value){
+      echo str_repeat("* ", $value) . "<br>";
+    }
+  } elseif (!is_numeric($amount)) {
+    echo "Ooh you didn't type a number";
   }
 }
 
