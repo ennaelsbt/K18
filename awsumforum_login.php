@@ -4,21 +4,16 @@
   $errorMsg = "";
   $validUser = $_SESSION["login"] === true; // checks if user has logged in?
 
-  // if form is submitted
   if(isset($_POST["loginSubmit"])) {
-      // saves username submitted by the user in session:
       $_SESSION["username"] = $_POST["user"];
-      // if username and password are right saves them in $validUser
       $validUser = $_POST["user"] == "admin" && $_POST["userPassword"] == "password";
-      // if username and password are not right and therefore saved, error message appears
       if(!$validUser) {
-          $errorMsg = "<p class=\"error-message\"><strong>Whoopsie!</strong> You submitted an invalid username or password.</p>";
-        } // if username and password are right and saved login is set true
-          else {
+          $errorMsg = "<p class=\"error-message\"><strong>Whoopsie!</strong><br>You have entered an invalid username or password</p>";
+        } else {
           $_SESSION["login"] = true;
         }
   }
-  if($validUser) { // same as $validUser == true so doesn't check the type
+  if($validUser) { // same as $validUser == true, doesn't check the type
       header("Location: awsumforum.php"); die();
   }
 ?>
@@ -30,11 +25,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1>Awsumforum awaits!</h1>
+    <h1>Just do it!</h1>
     <div class="container flex-container flex-container--justify-content">
       <section class="section-container--white">
         <form name="input" action="" method="post">
-          <h3>Welcome buddy</h3>
+          <h2>Welcome</h2>
           <div class="error">
             <?php echo $errorMsg ?>
           </div>

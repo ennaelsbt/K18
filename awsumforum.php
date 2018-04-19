@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // checks if user is logged in and if not redirects to login:
+    // checks if user is logged in (login === true) and if not redirects to login:
     if(!isset($_SESSION["login"])) {
         header("LOCATION:awsumforum_login.php"); die();
     }
@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
   </head>
   <body>
-    <h1>Awsumforum2000</h1>
+    <h1>Login success!</h1>
     <div class="container flex-container flex-container--justify-content">
       <div class="flex-container flex-container--column">
         <section class="section-container--white">
@@ -28,7 +28,7 @@
         </section>
         <form action="" method="post">
           <section class="button-section flex-container flex-container--space-around">
-            <input type="submit" value="Logout" name="logout">
+            <input type="submit" value="Sign out" name="logout">
           </section>
         </form>
       </div>
