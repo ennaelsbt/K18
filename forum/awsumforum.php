@@ -28,25 +28,44 @@
           <p>congrats <?php echo $_SESSION['username'] ?> you are in</p>
 
           <?php
-            $connection = mysqli_connect("localhost:8889", "root", "root", "awsumforum");
-              if (!$connection) {
-                echo "Error: Unable to connect to MySQL." . PHP_EOL;
-                echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-                echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-                exit;
-              }
+          $servername = "localhost:8889";
+          $username = "root";
+          $password = "root";
+          $dbname = "awsumforum";
 
-            $query = "select messageContent, messageAuthor, messageDate from messageboard";
-            $queryResult = mysqli_query($connection, $query)
-              or die("Virhe: " . mysqli_error($mysqlConnection));
+          $connection = new mysqli($servername, $username, $password, $dbname);
 
-            while($tableRow=mysqli_fetch_array($queryResult)) {
+          if ($connection->connect_error) {
+            die("Connection failed: " . $connection->connect_error);
+          }
           ?>
-            <strong><?php echo ($tableRow["messageDate"] . "</strong><br>\n" . $tableRow["messageAuthor"] . ": <br>\n" . $tableRow["messageContent"] . "<br>\n <br>\n");
-            }
-            mysqli_free_result($queryResult);
-            mysqli_close($connection);
+          <form action="" method="post">
+            <label>Username:</label>
+            <input type="text" name="myName" id="name" required="required" placeholder="Please enter name"/><br /><br />
+            <label>Message:</label>
+            <input type="text" name="myMessage" id="message" required="required" placeholder="Type a message"/><br/><br />
+            <input type="submit" value=" Submit " name="insertSubmit"/><br />
+          </form>
+          <?php
+          if(isset($_POST["insertSubmit"])) {
+            $sql = "INSERT INTO messageboard (messageContent, messageAuthor)
+            VALUES ('".$_POST['myMessage']."','".$_POST['myName']."')";
+           if ($connection->query($sql) === TRUE) {
+             echo "New record created successfully";
+             $query = "select messageContent, messageAuthor, messageDate from messageboard";
+             $queryResult = mysqli_query($connection, $query)
+               or die("Virhe: " . mysqli_error($connection));
+             while($tableRow=mysqli_fetch_array($queryResult)) {
+               echo ($tableRow["messageDate"] . "</strong><br>\n" . $tableRow["messageAuthor"] . ": <br>\n" . $tableRow["messageContent"] . "<br>\n <br>\n");
+             }
+           } else {
+             echo "Error: " . $sql . "<br>" . $connection->error;
+           } $connection->close();
+         }
+          mysqli_free_result($queryResult);
+          mysqli_close($connection);
           ?>
+
         </section>
         <form action="" method="post">
           <section class="button-section flex-container flex-container--space-around">
